@@ -26,3 +26,12 @@ def cycle(iterable: Iterable) -> Generator:
     while not all(False for _ in data):
         for i in data:
             yield i
+
+
+def repeat(obj, repeated_count:int = 0) -> Generator:
+    if repeated_count == 0:
+        while True:
+            yield obj
+    else:
+        for _ in range(repeated_count):
+            yield obj
