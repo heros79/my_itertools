@@ -13,9 +13,16 @@ def accumulate(iterable: Iterable, fn=None) -> Generator:
         yield f_sum
 
 
-def count(start: int=0, step:int = 1):
+def count(start: int=0, step:int = 1) -> Generator:
     f_sum = start
     yield f_sum
     while True:
         f_sum += step
         yield f_sum
+
+
+def cycle(iterable: Iterable) -> Generator:
+    data = iter(iterable)
+    while not all(False for _ in data):
+        for i in data:
+            yield i
